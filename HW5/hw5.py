@@ -104,10 +104,10 @@ medical_net = BayesNet([
 ])
 
 
-print("ข้อ 1 P(S=T, C=T, T=+) ตอบ:", enumerate_all(medical_net.variables, {'Smoker': T, 'Cancer': T, 'XRay': T}, medical_net))
-print("ข้อ 2 P(T=+)           ตอบ:", enumeration_ask('XRay', {}, medical_net)[T])
-print("ข้อ 3 P(C=T | T=+)     ตอบ:", round(enumeration_ask('Cancer', {'XRay': T}, medical_net)[T], 3))
-print("ข้อ 4 P(S=T | T=+)     :", round(enumeration_ask('Smoker', {'XRay': T}, medical_net)[T], 3))
+print("ข้อ 1  ตอบ:", enumerate_all(medical_net.variables, {'Smoker': T, 'Cancer': T, 'XRay': T}, medical_net))
+print("ข้อ 2  ตอบ:", enumeration_ask('XRay', {}, medical_net)[T])
+print("ข้อ 3  ตอบ:", round(enumeration_ask('Cancer', {'XRay': T}, medical_net)[T], 3))
+print("ข้อ 4  คอบ:", round(enumeration_ask('Smoker', {'XRay': T}, medical_net)[T], 3))
 
 prob_C_and_X = enumerate_all(medical_net.variables, {'Cancer': T, 'XRay': T}, medical_net)
-print("ข้อ 5 คาดว่าจะมีผู้ป่วยกี่ราย       ตอบ:", round(1000 * prob_C_and_X, 1), "ราย")
+print("ข้อ 5  ตอบ:", round(1000 * prob_C_and_X, 1), )
